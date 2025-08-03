@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axiosInstance.js";
+import axios from "../axiosInstance";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
