@@ -52,7 +52,7 @@ export default function Home() {
       </motion.p>
 
       <motion.a
-        href="/projects"
+        href="/api/projects"
         className="mt-8 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg text-white transition"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
