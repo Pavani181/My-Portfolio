@@ -14,7 +14,17 @@ import { protect } from "./middleware/authMiddleware.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // local dev (optional)
+      "https://my-portfolio-sigma-two-51.vercel.app", // your Vercel frontend URL
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // Serve uploads folder
