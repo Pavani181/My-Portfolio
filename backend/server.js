@@ -8,6 +8,7 @@ import projectRoutes from "./routes/projects.js";
 import certRoutes from "./routes/certificates.js";
 import authRoutes from "./routes/auth.js";
 import uploadRoutes from "./routes/upload.js"; // ✅ New
+import contactRoutes from "./routes/contact.js";
 
 import { protect } from "./middleware/authMiddleware.js";
 
@@ -34,7 +35,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/certificates", certRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/upload", uploadRoutes); // ✅ Mount upload route
-
+app.use("/api/contact", contactRoutes);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
