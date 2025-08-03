@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../axiosInstance";
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -26,11 +27,11 @@ export default function Admin() {
       };
 
       const p = await axios.get(
-        "http://localhost:5000/api/projects",
+        "/api/projects",
         authHeader
       );
       const c = await axios.get(
-        "http://localhost:5000/api/certificates",
+        "/api/certificates",
         authHeader
       );
       setProjects(p.data);
@@ -61,7 +62,7 @@ export default function Admin() {
       };
 
       await axios.post(
-        "http://localhost:5000/api/projects",
+        "/api/projects",
         {
           ...projectData,
           tech: projectData.tech.split(",").map((t) => t.trim()),
@@ -92,7 +93,7 @@ export default function Admin() {
       };
 
       await axios.post(
-        "http://localhost:5000/api/certificates",
+        "/api/certificates",
         certData,
         authHeader
       );
@@ -116,7 +117,7 @@ export default function Admin() {
       };
 
       await axios.delete(
-        `http://localhost:5000/api/projects/${id}`,
+        `/api/projects/${id}`,
         authHeader
       );
       fetchAll();
@@ -138,7 +139,7 @@ export default function Admin() {
       };
 
       await axios.delete(
-        `http://localhost:5000/api/certificates/${id}`,
+        `/api/certificates/${id}`,
         authHeader
       );
       fetchAll();
@@ -157,7 +158,7 @@ export default function Admin() {
       formData.append(field, e.target[field].files[0]);
 
       const token = localStorage.getItem("token");
-      await axios.post(`http://localhost:5000/api/upload/${field}`, formData, {
+      await axios.post(`/api/upload/${field}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

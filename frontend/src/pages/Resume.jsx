@@ -1,15 +1,16 @@
 // src/pages/Resume.jsx
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
+import axios from "../axiosInstance";
+
 
 export default function Resume() {
   const [resumePath, setResumePath] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/upload/latest").then((res) => {
+    axios.get("/api/upload/latest").then((res) => {
       setResumePath(
-        res.data.resume ? `http://localhost:5000${res.data.resume}` : ""
+        res.data.resume ? `${import.meta.env.VITE_API_BASE_URL}${res.data.resume}` : ""
       );
       // dynamic resume path
     });

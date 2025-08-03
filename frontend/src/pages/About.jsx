@@ -35,21 +35,24 @@
 // src/pages/About.jsx
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
+import axios from "../axiosInstance";
 
 export default function About() {
   const [certificates, setCertificates] = useState([]);
   const [profilePath, setProfilePath] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/certificates").then((res) => {
+    axios.get("/api/certificates").then((res) => {
       setCertificates(res.data);
     });
 
-    axios.get("http://localhost:5000/api/upload/latest").then((res) => {
+    axios.get("/api/upload/latest").then((res) => {
       setProfilePath(
-      res.data.profile ? `http://localhost:5000${res.data.profile}` : ""
-      ); // dynamic profile path
+        res.data.profile
+          ? `${import.meta.env.VITE_API_BASE_URL}${res.data.profile}`
+          : ""
+      );
+      // dynamic profile path
     });
   }, []);
 

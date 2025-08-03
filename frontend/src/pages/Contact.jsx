@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+
 export default function Contact() {
   return (
     <div className="min-h-screen px-6 py-12 bg-[#0f0f0f] text-white">
@@ -70,20 +71,20 @@ export default function Contact() {
         <h3 className="text-xl mb-4 text-cyan-300">Connect with me</h3>
         <div className="flex justify-center gap-6 text-gray-300 text-2xl">
           <a
-            href="https://github.com/yourgithub"
+            href="https://github.com/pavani181"
             target="_blank"
             className="hover:text-white"
           >
             <i className="fab fa-github"></i>
           </a>
           <a
-            href="https://linkedin.com/in/yourlinkedin"
+            href="https://linkedin.com/in/pavani pantula"
             target="_blank"
             className="hover:text-white"
           >
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="mailto:youremail@example.com" className="hover:text-white">
+          <a href="mailto:pavanipantula02@gmail.com" className="hover:text-white">
             <i className="fas fa-envelope"></i>
           </a>
         </div>

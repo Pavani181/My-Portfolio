@@ -1,13 +1,14 @@
 // src/pages/Projects.jsx
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
+import axios from "../axiosInstance";
+
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/projects").then((res) => {
+    axios.get("/api/projects").then((res) => {
       setProjects(res.data);
     });
   }, []);
