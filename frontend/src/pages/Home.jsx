@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const typedRef = useRef(null);
@@ -51,15 +52,18 @@ export default function Home() {
         experiences.
       </motion.p>
 
-      <motion.a
-        href="/api/projects"
-        className="mt-8 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg text-white transition"
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-        View Projects
-      </motion.a>
+        <Link
+          to="/projects"
+          className="mt-8 inline-block px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg text-white transition"
+        >
+          View Projects
+        </Link>
+      </motion.div>
     </div>
   );
 }
